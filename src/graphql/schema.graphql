@@ -7,7 +7,9 @@ type Query {
   getBoolean: Boolean
   getID: ID
   getNumers(numbers: [Int!]!): [Int]
-  getProduct: Product
+  # products
+  product(id: ID!): Product
+  allProducts: [Product!]!
 }
 #comentarios :D
 type Product {
