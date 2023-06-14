@@ -6,6 +6,7 @@ const {
   deleteProduct,
 } = require('./products.resolvers');
 const { login } = require('./auth.resolvers');
+const { addCategory } = require('./category.resolvers');
 
 const resolvers = {
   Query: {
@@ -27,6 +28,7 @@ const resolvers = {
     addProduct,
     updateProduct,
     deleteProduct,
+    addCategory,
   },
 };
 module.exports = resolvers;

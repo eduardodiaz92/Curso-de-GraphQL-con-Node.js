@@ -17,6 +17,7 @@ type Mutation {
   addProduct(dto: CreateProductDto!): Product
   updateProduct(id: ID!, dto: UpdateProductDto!): Product
   deleteProduct(id: ID!): ID
+  addCategory(dto: CreateCategory): Category
 }
 
 #comentarios :D
@@ -63,4 +64,9 @@ type User {
   email: String!
   role: String!
   createdAt: String!
+}
+
+input CreateCategory {
+  name: String!
+  image: String!
 }
