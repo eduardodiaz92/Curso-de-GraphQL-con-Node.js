@@ -1,4 +1,11 @@
-const { getProduct, getProducts, addProduct } = require('./products.resolvers');
+const {
+  getProduct,
+  getProducts,
+  addProduct,
+  updateProduct,
+  deleteProduct,
+} = require('./products.resolvers');
+const { login } = require('./auth.resolvers');
 
 const resolvers = {
   Query: {
@@ -16,7 +23,10 @@ const resolvers = {
     allProducts: getProducts,
   },
   Mutation: {
+    login,
     addProduct,
+    updateProduct,
+    deleteProduct,
   },
 };
 module.exports = resolvers;
