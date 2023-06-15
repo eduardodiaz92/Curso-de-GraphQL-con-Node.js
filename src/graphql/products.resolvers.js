@@ -20,10 +20,17 @@ const deleteProduct = async (_, { id }) => {
   await service.delete(id);
   return id;
 };
+
+const getProductsByCategory = (parent) => {
+  const id = parent.dataValues.id;
+  return service.getByCategory(id);
+};
+
 module.exports = {
   deleteProduct,
   getProduct,
   getProducts,
   addProduct,
   updateProduct,
+  getProductsByCategory,
 };
