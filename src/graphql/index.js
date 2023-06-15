@@ -8,11 +8,20 @@ const { config } = require('../config/config');
 const { loadFilesSync } = require('@graphql-tools/load-files');
 const resolvers = require('./resolvers');
 const { buildContext } = require('graphql-passport');
+const {
+  typeDefs: scalarsTypeDefs,
+  resolvers: scalarsResolvers,
+} = require('graphql-scalars');
 
 const useGraphQL = async (app) => {
+  const typeDefs = [
+    ...(await loadFilesSync('./**/*.graphql')),
+    scalarsTypeDefs,
+  ];
+  const allResolvers = [resolvers, scalarsResolvers];
   const server = new ApolloServer({
-    typeDefs: loadFilesSync('./**/*.graphql'),
-    resolvers,
+    typeDefs,
+    resolvers: allResolvers,
     //context: ({ req, res }) => buildContext({ req, res }),
     playground: true,
     plugins: [
